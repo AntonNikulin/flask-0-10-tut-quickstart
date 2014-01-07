@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, url_for
 app = Flask(__name__)
 
 @app.route("/hello")
@@ -7,7 +7,9 @@ def hello_world():
 
 @app.route("/")
 def index():
-    return "Index Page"
+    css = url_for("static", filename="style.css")
+    return '<link rel="stylesheet" type="text/css" href="{0}">' \
+           ' <p>Index Page</p>'.format(css)
 
 @app.route("/user/<username>")
 def showUserProfile(username):
