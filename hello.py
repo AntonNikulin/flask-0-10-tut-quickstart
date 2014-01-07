@@ -13,5 +13,10 @@ def index():
 def showUserProfile(username):
     return "User %s" % username
 
+@app.route("/meth", methods=["GET"])
+def meth():
+    return "Hi with GET!"
+
 if __name__ == "__main__":
     app.run(debug=True)
+
